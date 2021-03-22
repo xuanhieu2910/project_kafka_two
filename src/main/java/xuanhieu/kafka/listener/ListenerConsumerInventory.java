@@ -8,6 +8,8 @@ import xuanhieu.kafka.dto.InventoryDto;
 import xuanhieu.kafka.entity.Inventory;
 import xuanhieu.kafka.entity.Orders;
 
+import java.util.Date;
+
 @Service
 public class ListenerConsumerInventory {
 

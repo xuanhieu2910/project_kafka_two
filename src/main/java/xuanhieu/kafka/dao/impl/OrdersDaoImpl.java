@@ -9,6 +9,7 @@ import xuanhieu.kafka.dao.OrdersDao;
 import xuanhieu.kafka.entity.Orders;
 import xuanhieu.kafka.repository.OrdersRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,9 @@ public class OrdersDaoImpl implements OrdersDao {
     private static final String NAME_TOPIC_UPDATE_INVENTORY = "update-inventory";
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static String jsonStringOrder;
+
+
+    private static Date date1;
 
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;

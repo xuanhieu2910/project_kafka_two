@@ -20,6 +20,7 @@ public class ConfigKafkaConsumer {
         objectMap.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
         objectMap.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         objectMap.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class);
+        objectMap.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG,"65");
         objectMap.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"latest");
         return new DefaultKafkaConsumerFactory<>(objectMap);
     }
