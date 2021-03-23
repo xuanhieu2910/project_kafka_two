@@ -38,14 +38,14 @@ public class OrdersDaoImpl implements OrdersDao {
 
     @Override
     public Orders createNewOrders(Orders orders) {
-        ordersRepository.save(orders);
+//        ordersRepository.save(orders);
         try {
             jsonStringOrder = objectMapper.writeValueAsString(orders);
             kafkaTemplate.send(NAME_TOPIC_UPDATE_INVENTORY, jsonStringOrder);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return orders;
+        return ordersRepository.save(orders);
     }
 
     @Override

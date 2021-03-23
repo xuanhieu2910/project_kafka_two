@@ -9,5 +9,5 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     @Query("SELECT iv FROM Inventory iv WHERE iv.products.idProduct=:id")
     Inventory getInventoriesByIdProduct(@Param("id") Integer id);
-
+                            
 }

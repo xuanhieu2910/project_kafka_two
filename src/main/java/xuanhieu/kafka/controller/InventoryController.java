@@ -6,13 +6,13 @@ import xuanhieu.kafka.service.InventoryService;
 
 import java.util.*;
 @RestController
-@RequestMapping(name = "/kafka")
+@RequestMapping(name = "/inventorys")
 public class InventoryController {
 
     @Autowired
     InventoryService inventoryService;
 
-    @GetMapping(value = "/inventory")
+    @GetMapping(value = "/")
     public List<Inventory>findAllInventory(){
         return  inventoryService.findAllInventory();
     }
@@ -25,7 +25,7 @@ public class InventoryController {
         }
         return "Chỉnh sửa thất bại";
     }
-    @GetMapping(value = "/inventory/{id}")
+    @GetMapping(value = "/{id}")
     public Inventory getInventoryById(@PathVariable("id")Integer id){
         if(inventoryService.getInventoryById(id)!=null){
             return inventoryService.getInventoryById(id);

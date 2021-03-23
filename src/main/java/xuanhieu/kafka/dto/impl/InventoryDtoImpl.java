@@ -30,7 +30,7 @@ public class InventoryDtoImpl implements InventoryDto {
             idProduct = orderDetails.get(i).getProducts().getIdProduct();
             quantityAfter = inventoryDao.getInventoryByIdProduct(idProduct).getTotalSales() - quantityBefore;
             inventory = inventoryDao.getInventoryByIdProduct(idProduct);
-            inventory.setTotalSales(quantityAfter);
+            inventory.setTotalInventory(quantityAfter);
             inventory.setModifiedOn(orders.getCreatedOn());
             inventoryDao.updateInventory(inventory);
         }
