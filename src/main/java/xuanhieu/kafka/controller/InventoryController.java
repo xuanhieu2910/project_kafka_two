@@ -6,13 +6,13 @@ import xuanhieu.kafka.service.InventoryService;
 
 import java.util.*;
 @RestController
-@RequestMapping(name = "/inventorys")
+@RequestMapping(value = "/inventorys")
 public class InventoryController {
 
     @Autowired
     InventoryService inventoryService;
-
-    @GetMapping(value = "/")
+    //Thiếu chi nhánh
+    @GetMapping
     public List<Inventory>findAllInventory(){
         return  inventoryService.findAllInventory();
     }

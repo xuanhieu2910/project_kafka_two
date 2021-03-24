@@ -38,6 +38,11 @@ public class ProductsServiceImpl implements ProductsService {
     }
 
     @Override
+    public List<Products> getProductByNameProduct(String name) {
+        return productsDao.getProductsByNameProduct(name);
+    }
+
+    @Override
     public Products createNewProduct(Products products) {
         products.setModifiedOn(products.getCreatedOn());
         return productsDao.createNewProduct(products);

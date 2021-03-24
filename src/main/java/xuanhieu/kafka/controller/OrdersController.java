@@ -7,13 +7,13 @@ import xuanhieu.kafka.entity.Orders;
 import xuanhieu.kafka.service.OrdersService;
 import java.util.*;
 @RestController
-@RequestMapping(name = "/orders")
+@RequestMapping(value = "/orders")
 public class OrdersController {
     @Autowired
     OrdersService ordersService;
 
 
-    @GetMapping(value = "/")
+    @GetMapping
     public List<Orders>findAllOrders(){
         return ordersService.getAllOrders();
     }

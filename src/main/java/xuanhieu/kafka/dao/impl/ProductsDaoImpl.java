@@ -8,6 +8,7 @@ import xuanhieu.kafka.entity.Products;
 import xuanhieu.kafka.repository.ProductsRepository;
 import xuanhieu.kafka.service.InventoryService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,15 @@ public class ProductsDaoImpl implements ProductsDao {
     @Override
     public Products getProductsByIdProduct(Integer id) {
         Optional<Products>products = productsRepository.findById(id);
+        if(products.isPresent()){
+            return products.get();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Products> getProductsByNameProduct(String name) {
+        Optional<List<Products>>products = productsRepository.findProductsByNameProduct(name);
         if(products.isPresent()){
             return products.get();
         }

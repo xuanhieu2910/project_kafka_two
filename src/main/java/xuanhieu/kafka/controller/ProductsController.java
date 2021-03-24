@@ -7,7 +7,7 @@ import xuanhieu.kafka.entity.Products;
 import xuanhieu.kafka.service.ProductsService;
 import java.util.*;
 @RestController
-@RequestMapping(name = "/products")
+@RequestMapping(value = "/products")
 public class ProductsController {
     @Autowired
     KafkaTemplate<String, String> productsKafkaTemplate;
@@ -15,8 +15,11 @@ public class ProductsController {
     ProductsService productsService;
 
 
-    @GetMapping(value = "/")
-    public List<Products> getAllProducts() {
+    @GetMapping
+    public List<Products> getAllProducts(@RequestParam(value = "name",required = false,defaultValue = "list")String name) {
+        if(!name.equals("list")){
+            return productsService.getProductByNameProduct(name);
+        }
         return productsService.findAllProducts();
     }
 

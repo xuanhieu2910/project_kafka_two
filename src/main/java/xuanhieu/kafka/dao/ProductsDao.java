@@ -9,11 +9,14 @@ public interface ProductsDao {
 
     Products getProductsByIdProduct(Integer id);
 
+    List<Products> getProductsByNameProduct(String name);
+
     Products createNewProduct(Products products);
 
     Products updateProduct(Products products);
 
     String deleteProductByIdProduct(Integer id);
+
 
 
 }
